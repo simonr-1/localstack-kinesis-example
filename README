@@ -1,1 +1,10 @@
-initial commit
+Requirements:
+- Localstack
+- Terraform
+
+Running this example:
+create a lambda.zip file which contains the lambda.py file by running the command below
+zip lambda.zip lambda.py
+
+start localstack by running the command below
+
