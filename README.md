@@ -11,7 +11,8 @@ Kinesis only returns a response after the invoked lambda has completed, this mea
 Another issue is that lambda's eventually end up running simultaneously even though the parallelization factor is set to 1, a lambda should only be invoked after the previous lambda has completed when configured this way.
 
 # Required software:
---[Localstack](https://github.com/localstack/localstack) 
+--[Localstack](https://github.com/localstack/localstack)
+
 --[Terraform](https://www.terraform.io/downloads.html)
 
 # Steps to reproduce
