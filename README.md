@@ -8,7 +8,7 @@ Kinesis should return a response to the client stating whether the request was s
 
 ## Actual behaviour:
 Kinesis only returns a response after the invoked lambda has completed, this means aws sdks that have implemented retry mechanisms will attempt to send the data again due to not receiving a response in time.
-Another issue is that lambda's eventually end up running simultaneously even though the parallelization factor is set to 1, a lambda should only be invoked after the previous lambda has completed when configured this way.
+Another issue is that lambda's eventually end up running in parallel even though the parallelization factor is set to 1, a lambda should only be invoked after the previous lambda has completed when configured this way.
 
 # Required software:
 * [Localstack](https://github.com/localstack/localstack)  
@@ -21,4 +21,4 @@ Another issue is that lambda's eventually end up running simultaneously even tho
 4. Run `terraform apply -auto-approve` this will create the relevant aws resources
 5. Once all the resources have been created run the producer.py script
 
-You should see that 2 lambda's are invoked simultaneously by comparing the last timestamp of the first invocation to the first timestamp of the second invocation.
+You should see that 2 lambda's are invoked and by comparing the last timestamp of the first invocation to the first timestamp of the second invocation the second lambda is invoked before the first lambda finishes.
